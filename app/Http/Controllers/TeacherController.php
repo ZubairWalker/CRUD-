@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use App\Http\Requests\TeacherStoreRequest;
+use App\Http\Requests\TeacherUpdateRequest;
 
 class TeacherController extends Controller
 {
@@ -33,7 +35,7 @@ class TeacherController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TeacherStoreRequest $request)
     {
         
 
@@ -46,8 +48,10 @@ class TeacherController extends Controller
 
         // $teacher->save();
 
+        // Validation 
+
         Teacher::create($request->all());
-        return redirect()->route('teacher.index');
+        return redirect()->route('teacher.index')->with('success', 'Teacher created successfully');
     }
 
     /**
@@ -71,7 +75,7 @@ class TeacherController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TeacherUpdateRequest $request, string $id)
     {
         $teacher = Teacher::find($id);
         $teacher->update($request->all());

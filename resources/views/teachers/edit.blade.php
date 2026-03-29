@@ -12,25 +12,37 @@
                         <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
                         <input value="{{ $teacher->name }}" type="text" name="name" id="name" 
                             class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-200 bg-gray-50 hover:bg-white" 
-                            placeholder="e.g. John Smith" required>
+                            placeholder="e.g. John Smith" >
+                            @error('name')
+                                <p class="text-red-500">{{ $message }}</p>
+                            @enderror
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
                         <input value="{{ $teacher->email }}" type="email" name="email" id="email" 
                             class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-200 bg-gray-50 hover:bg-white" 
-                            placeholder="teacher@example.com" required>
+                            placeholder="teacher@example.com" >
+                            @error('email')
+                                <p class="text-red-500">{{ $message }}</p>
+                            @enderror
                     </div>
                     <div>
                         <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
                         <input value="{{ $teacher->phone }}" type="text" name="phone" id="phone" 
                             class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-200 bg-gray-50 hover:bg-white" 
-                            placeholder="01xxxxxxxxx" value="+998" required>
+                            placeholder="01xxxxxxxxx" value="+998" >
+                            @error('phone')
+                                <p class="text-red-500">{{ $message }}</p>
+                            @enderror
                     </div>
                     <div>
                         <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">Address</label>
                         <input value="{{ $teacher->address }}" type="text" name="address" id="address" 
                             class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-200 bg-gray-50 hover:bg-white" 
-                            placeholder="teacher@example.com" required>
+                            placeholder="United States" >
+                            @error('address')
+                                <p class="text-red-500">{{ $message }}</p>
+                            @enderror
                     </div> 
                     <div class="pt-4">
                         <button type="submit" 
